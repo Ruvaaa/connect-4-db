@@ -1,0 +1,15 @@
+name: Connect 4
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  play:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.issue.title, 'Connect4|')
+    steps:
+      - name: Play Game
+        uses: jonathan-gin/readme-connect4@master
+        with:
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
